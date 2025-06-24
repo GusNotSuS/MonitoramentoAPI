@@ -77,7 +77,7 @@ namespace MonitoramentoAPI.Jobs
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    await emailService.EnviarEmailFalha("destinatario@exemplo.com", servico.Nome, response.ReasonPhrase ?? "Erro desconhecido");
+                    await emailService.EnviarEmailFalha("email aqui", servico.Nome, response.ReasonPhrase ?? "Erro desconhecido");
                 }
             }
             catch (Exception ex)
@@ -91,7 +91,7 @@ namespace MonitoramentoAPI.Jobs
 
                 servico.StatusUltimaVerificacao = "Erro";
 
-                await emailService.EnviarEmailFalha("destinatario@exemplo.com", servico.Nome, ex.Message);
+                await emailService.EnviarEmailFalha("email aqui", servico.Nome, ex.Message);
             }
 
             await context.SaveChangesAsync();
